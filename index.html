@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mio figlio entra nei Pulcini: e adesso?</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    color: #1a1a2e;
+    background: #fafbfc;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    border-bottom: 3px solid #0066b3;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0066b3;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.05rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero .intro {
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Sections */
+  section {
+    margin-top: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: #0066b3;
+    border-left: 4px solid #0066b3;
+    padding-left: .75rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    color: #1a1a2e;
+    margin: 1.5rem 0 .5rem;
+  }
+
+  p { margin-bottom: 1rem; }
+
+  a {
+    color: #0066b3;
+    text-decoration: underline;
+    text-decoration-color: #b3d4f0;
+    text-underline-offset: 2px;
+  }
+
+  a:hover { text-decoration-color: #0066b3; }
+
+  .source-link {
+    font-size: .85rem;
+    color: #0066b3;
+    text-decoration: none;
+    border: 1px solid #b3d4f0;
+    padding: .15rem .45rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .source-link:hover {
+    background: #e8f2fc;
+  }
+
+  /* Slogan box */
+  .slogan {
+    background: #e8f2fc;
+    border-left: 4px solid #0066b3;
+    padding: 1rem 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0066b3;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+
+  /* Category list */
+  .categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+    margin: 1rem 0;
+  }
+
+  .cat-card {
+    background: #fff;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    padding: .85rem 1rem;
+  }
+
+  .cat-card strong {
+    display: block;
+    color: #0066b3;
+    font-size: 1rem;
+  }
+
+  .cat-card span {
+    font-size: .9rem;
+    color: #555;
+  }
+
+  .cat-card.active {
+    border-color: #0066b3;
+    background: #f0f7ff;
+    box-shadow: 0 0 0 2px #b3d4f0;
+  }
+
+  /* Rules grid */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+    margin: 1rem 0;
+  }
+
+  .rule-item {
+    background: #fff;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .rule-item .big {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0066b3;
+    display: block;
+  }
+
+  .rule-item .label {
+    font-size: .85rem;
+    color: #555;
+  }
+
+  /* Module cards */
+  .modules {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .module-card {
+    background: #fff;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    padding: 1.25rem;
+    position: relative;
+  }
+
+  .module-card .module-num {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    background: #0066b3;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: .15rem .55rem;
+    border-radius: 4px;
+    letter-spacing: .5px;
+  }
+
+  .module-card h3 {
+    margin: .25rem 0 .5rem;
+    font-size: 1.05rem;
+  }
+
+  .module-factors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: .5rem;
+    margin-top: .5rem;
+  }
+
+  .factor {
+    font-size: .82rem;
+    padding: .5rem;
+    border-radius: 6px;
+    line-height: 1.4;
+  }
+
+  .factor-tech { background: #e8f2fc; }
+  .factor-tact { background: #e8fce8; }
+  .factor-phys { background: #fcf2e8; }
+
+  .factor-label {
+    font-weight: 700;
+    display: block;
+    margin-bottom: .2rem;
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+
+  .factor-tech .factor-label { color: #0055a0; }
+  .factor-tact .factor-label { color: #2e7d32; }
+  .factor-phys .factor-label { color: #bf6c00; }
+
+  /* Session breakdown */
+  .session-bar {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+    height: 36px;
+    font-size: .75rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .session-bar > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 .5rem;
+    white-space: nowrap;
+  }
+
+  .sb-tech { background: #0066b3; flex: 25; }
+  .sb-tact { background: #2e7d32; flex: 25; }
+  .sb-phys { background: #bf6c00; flex: 20; }
+  .sb-match { background: #c62828; flex: 20; }
+
+  .session-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.25rem;
+    margin: .5rem 0 1rem;
+    font-size: .85rem;
+  }
+
+  .session-legend span::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-right: .35rem;
+    vertical-align: middle;
+  }
+
+  .legend-tech::before { background: #0066b3; }
+  .legend-tact::before { background: #2e7d32; }
+  .legend-phys::before { background: #bf6c00; }
+  .legend-match::before { background: #c62828; }
+
+  /* Blockquote */
+  blockquote {
+    border-left: 3px solid #ccc;
+    padding: .5rem 1rem;
+    margin: 1rem 0;
+    font-style: italic;
+    color: #444;
+    background: #f9f9f9;
+    border-radius: 0 6px 6px 0;
+  }
+
+  blockquote cite {
+    display: block;
+    font-style: normal;
+    font-size: .85rem;
+    color: #777;
+    margin-top: .35rem;
+  }
+
+  /* People grid */
+  .people {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+    margin: 1rem 0;
+  }
+
+  .person {
+    background: #fff;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    padding: .75rem;
+  }
+
+  .person strong {
+    display: block;
+    color: #1a1a2e;
+    font-size: .95rem;
+  }
+
+  .person span {
+    font-size: .8rem;
+    color: #666;
+  }
+
+  /* Sources table */
+  .sources-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: .88rem;
+  }
+
+  .sources-table th {
+    text-align: left;
+    background: #0066b3;
+    color: #fff;
+    padding: .6rem .75rem;
+    font-weight: 600;
+  }
+
+  .sources-table td {
+    padding: .55rem .75rem;
+    border-bottom: 1px solid #e0e6ed;
+    vertical-align: top;
+  }
+
+  .sources-table tr:nth-child(even) { background: #f5f7fa; }
+
+  .sources-table a {
+    font-size: .82rem;
+    word-break: break-all;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e6ed;
+    font-size: .85rem;
+    color: #888;
+    text-align: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.6rem; }
+    .categories,
+    .rules-grid,
+    .people { grid-template-columns: 1fr; }
+    .module-factors { grid-template-columns: 1fr; }
+    .session-bar { height: auto; flex-direction: column; }
+    .session-bar > div { padding: .4rem .5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>Mio figlio entra nei Pulcini: e adesso?</h1>
+    <p class="subtitle">Un genitore, un bambino del 2017, e un sacco di PDF della FIGC da leggere</p>
+    <p class="intro">
+      Mio figlio ha iniziato a dare calci a un pallone praticamente prima di saper camminare.
+      L'anno prossimo, stagione 2026-2027, farà il salto nei <strong>Pulcini</strong>: la categoria U10/U11 del calcio giovanile italiano.
+      Da papà curioso (e un po' nerd), mi sono chiesto: <em>cosa si aspetta la FIGC che impari davvero, al di là della partitella del sabato?</em>
+    </p>
+    <p class="intro">
+      Così ho fatto quello che farebbe qualsiasi genitore ragionevole: ho scaricato tutti i documenti ufficiali del
+      <strong>Settore Giovanile e Scolastico</strong>, ho letto guide tecniche, comunicati ufficiali, schede operative e regolamenti.
+      Quello che segue è il risultato di questa ricerca, con i link a tutte le fonti per chi volesse verificare in prima persona.
+    </p>
+  </header>
+
+  <!-- ATTIVITÀ DI BASE -->
+  <section>
+    <h2>Ma che cos'è l'Attività di Base?</h2>
+    <p>
+      L'attività dei bambini tra i 5 e i 12 anni, nella FIGC, si chiama <strong>Attività di Base</strong>
+      ed è gestita dal <strong>Settore Giovanile e Scolastico (SGS)</strong>.
+      Rientra nel programma internazionale "Grassroots" di UEFA e FIFA, ed è organizzata in quattro categorie.
+      <a class="source-link" href="https://www.figc.it/media/276343/cu-n1-figc-sgs-stagione-sportiva-2025-2026.pdf" target="_blank" rel="noopener">fonte FIGC</a>
+    </p>
+
+    <div class="categories">
+      <div class="cat-card">
+        <strong>Piccoli Amici</strong>
+        <span>5-6 anni</span>
+      </div>
+      <div class="cat-card">
+        <strong>Primi Calci</strong>
+        <span>U8 / U9</span>
+      </div>
+      <div class="cat-card active">
+        <strong>Pulcini</strong>
+        <span>U10 / U11 — nati nel 2017-2018</span>
+      </div>
+      <div class="cat-card">
+        <strong>Esordienti</strong>
+        <span>U12 / U13</span>
+      </div>
+    </div>
+
+    <p>
+      Un dettaglio fondamentale: questa attività ha carattere <strong>promozionale, ludico e didattico</strong>.
+      Mai agonistico puro. L'obiettivo non è vincere il campionato dei Pulcini,
+      ma far crescere i bambini come persone e come sportivi.
+      <a class="source-link" href="https://www.figc.it/media/276426/cu-n03-figc-sgs-programmazione-attivita-di-base-2025-2026.pdf" target="_blank" rel="noopener">fonte FIGC</a>
+    </p>
+
+    <div class="slogan">"Giochiamo TUTTI, DI PIU, MEGLIO"</div>
+
+    <p>
+      Questo slogan riassume la filosofia dell'SGS: <em>tutti</em> devono giocare (non solo i più bravi),
+      <em>di più</em> (più tocchi di palla, più tempo in campo), <em>meglio</em> (con qualità didattica).
+    </p>
+  </section>
+
+  <!-- COME SI GIOCA -->
+  <section>
+    <h2>Come si gioca a 8-9 anni</h2>
+    <p>
+      Se vi immaginate un campo da calcio con 22 giocatori e un arbitro in nero,
+      dimenticatevi tutto. Il calcio dei Pulcini è un'altra cosa.
+      <a class="source-link" href="https://www.figc.it/media/276417/allegato-7b-approfondimento_regole_u10-u11.pdf" target="_blank" rel="noopener">fonte FIGC</a>
+    </p>
+
+    <div class="rules-grid">
+      <div class="rule-item">
+        <span class="big">7 vs 7</span>
+        <span class="label">Giocatori per squadra</span>
+      </div>
+      <div class="rule-item">
+        <span class="big">3 tempi</span>
+        <span class="label">di gioco (non due)</span>
+      </div>
+      <div class="rule-item">
+        <span class="big">50-65 m</span>
+        <span class="label">Lunghezza campo</span>
+      </div>
+      <div class="rule-item">
+        <span class="big">N. 4</span>
+        <span class="label">Misura del pallone</span>
+      </div>
+    </div>
+
+    <h3>I bambini arbitrano da soli</h3>
+    <p>
+      Sì, avete letto bene. Si chiama <strong>autoarbitraggio</strong>: nelle gare dei Pulcini sono i giocatori stessi
+      a gestire le decisioni, con il supporto di un "dirigente arbitro" e dei tecnici che intervengono
+      solo come mediatori. L'idea è sviluppare il senso di responsabilità e il rispetto delle regole dall'interno,
+      non per imposizione esterna.
+      <a class="source-link" href="https://www.figc.it/media/276417/allegato-7b-approfondimento_regole_u10-u11.pdf" target="_blank" rel="noopener">fonte FIGC</a>
+    </p>
+
+    <h3>Il cartellino verde</h3>
+    <p>
+      Oltre ai classici giallo e rosso (usati raramente e solo in casi eccezionali), esiste il
+      <strong>cartellino verde — la Green Card</strong>: viene assegnato per premiare
+      azioni di fair play particolarmente significative.
+      Un bambino che ammette un fallo suo, che aiuta un avversario a rialzarsi,
+      che rinuncia a un vantaggio per correttezza: quello merita un cartellino verde.
+      <a class="source-link" href="https://www.figc.it/media/276417/allegato-7b-approfondimento_regole_u10-u11.pdf" target="_blank" rel="noopener">fonte FIGC</a>
+    </p>
+  </section>
+
+  <!-- COSA IMPARERANNO -->
+  <section>
+    <h2>Cosa impareranno: i 6 moduli dell'anno</h2>
+    <p>
+      La programmazione didattica della FIGC per i Pulcini prevede <strong>6 moduli</strong>
+      distribuiti sull'intero anno sportivo, ciascuno con obiettivi progressivi.
+      Il percorso parte dalla scoperta individuale della palla e arriva al gioco di squadra con passaggi e smarcamenti.
+      Ogni modulo lavora su tre fattori: <strong>tecnico-coordinativo</strong>, <strong>tattico-cognitivo</strong>
+      e <strong>fisico-motorio</strong>.
+      <a class="source-link" href="https://www.figc.it/media/2337/3parte.pdf" target="_blank" rel="noopener">fonte: Guida Tecnica pt.3</a>
+    </p>
+
+    <div class="modules">
+      <div class="module-card">
+        <span class="module-num">MODULO 1</span>
+        <h3>La scoperta della palla</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:.5rem;">
+          Il bambino fa amicizia con il pallone. Impara a guidarlo, portarlo con sé, sentirlo sotto i piedi.
+        </p>
+        <div class="module-factors">
+          <div class="factor factor-tech">
+            <span class="factor-label">Tecnico</span>
+            Correre per guidare la palla
+          </div>
+          <div class="factor factor-tact">
+            <span class="factor-label">Tattico</span>
+            Conduzione in spazio libero, superare un avversario su linea
+          </div>
+          <div class="factor factor-phys">
+            <span class="factor-label">Fisico</span>
+            Rapidit&agrave;
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <span class="module-num">MODULO 2</span>
+        <h3>Correre per calciare</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:.5rem;">
+          Non basta portare la palla: bisogna anche sapere dove e quando calciare.
+          Si introduce la conduzione con pressione e il tiro in porta.
+        </p>
+        <div class="module-factors">
+          <div class="factor factor-tech">
+            <span class="factor-label">Tecnico</span>
+            Guidare e calciare, conduzione con pressione temporale
+          </div>
+          <div class="factor factor-tact">
+            <span class="factor-label">Tattico</span>
+            Superamento di un avversario in una zona
+          </div>
+          <div class="factor factor-phys">
+            <span class="factor-label">Fisico</span>
+            Rapidit&agrave;
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <span class="module-num">MODULO 3</span>
+        <h3>Guidare, colpire e... passare!</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:.5rem;">
+          Ecco il momento in cui il bambino scopre che non è solo in campo.
+          Compare il passaggio radente frontale: la palla può andare anche a un compagno.
+        </p>
+        <div class="module-factors">
+          <div class="factor factor-tech">
+            <span class="factor-label">Tecnico</span>
+            Guida con cambio direzione, passaggio radente frontale
+          </div>
+          <div class="factor factor-tact">
+            <span class="factor-label">Tattico</span>
+            Superamento con orientamento nello spazio, protezione della palla
+          </div>
+          <div class="factor factor-phys">
+            <span class="factor-label">Fisico</span>
+            Rapidit&agrave;, equilibrio
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <span class="module-num">MODULO 4</span>
+        <h3>Trasmettere e ricevere</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:.5rem;">
+          Il passaggio diventa protagonista. Il bambino impara non solo a passare
+          ma anche a muoversi per ricevere: nasce il concetto di smarcamento.
+        </p>
+        <div class="module-factors">
+          <div class="factor factor-tech">
+            <span class="factor-label">Tecnico</span>
+            Trasmissione e ricezione (palla radente e frontale)
+          </div>
+          <div class="factor factor-tact">
+            <span class="factor-label">Tattico</span>
+            Spostarsi nello spazio libero, inizio concetto di smarcamento
+          </div>
+          <div class="factor factor-phys">
+            <span class="factor-label">Fisico</span>
+            Rapidit&agrave;
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <span class="module-num">MODULO 5</span>
+        <h3>Passa al momento giusto</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:.5rem;">
+          Il passaggio si evolve: diagonale, a parabola. Il gioco diventa più complesso e iniziano le triangolazioni.
+          Compare il tiro in porta come scelta tattica, non solo istinto.
+        </p>
+        <div class="module-factors">
+          <div class="factor factor-tech">
+            <span class="factor-label">Tecnico</span>
+            Trasmissione radente e diagonale, tiro in porta e dribbling
+          </div>
+          <div class="factor factor-tact">
+            <span class="factor-label">Tattico</span>
+            Smarcamento, appoggio laterale, triangolazione
+          </div>
+          <div class="factor factor-phys">
+            <span class="factor-label">Fisico</span>
+            Rapidit&agrave;, resistenza
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <span class="module-num">MODULO 6</span>
+        <h3>Il gioco di squadra</h3>
+        <p style="font-size:.9rem;color:#555;margin-bottom:.5rem;">
+          Si arriva alla collaborazione vera. Il bambino impara a fidarsi del compagno,
+          a smarcarsi con intenzionalit&agrave;. Si introduce persino la propedeutica al palleggio.
+        </p>
+        <div class="module-factors">
+          <div class="factor factor-tech">
+            <span class="factor-label">Tecnico</span>
+            Tiro in porta, trasmissione laterale, sensibilizzazione al palleggio
+          </div>
+          <div class="factor factor-tact">
+            <span class="factor-label">Tattico</span>
+            Smarcamento consapevole
+          </div>
+          <div class="factor factor-phys">
+            <span class="factor-label">Fisico</span>
+            Rapidit&agrave;, circuiti di movimento
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:.88rem;color:#666;">
+      Fonte: Schede Operative Categoria Pulcini (SGS-FIGC) e
+      <a href="https://www.figc.it/media/2337/3parte.pdf" target="_blank" rel="noopener">Guida Tecnica per le Scuole di Calcio, Parte 3</a>
+      — Tabella 17 (pag. 156), che descrive le caratteristiche dei Pulcini 8-10 anni.
+    </p>
+  </section>
+
+  <!-- GIORNATA TIPO -->
+  <section>
+    <h2>La giornata tipo: 90 minuti ben spesi</h2>
+    <p>
+      Ogni seduta di allenamento dura <strong>90 minuti</strong> ed è strutturata come una vera e propria lezione,
+      non come un "andate a giocare". C'è un piano, ci sono obiettivi, c'è una progressione.
+      Ma — e questo è il bello — il bambino non se ne accorge, perché tutto avviene attraverso il gioco.
+    </p>
+
+    <div class="session-bar">
+      <div class="sb-tech">Tecnico (20-25')</div>
+      <div class="sb-tact">Tattico (20-25')</div>
+      <div class="sb-phys">Fisico (15-20')</div>
+      <div class="sb-match">Partita (15-20')</div>
+    </div>
+
+    <div class="session-legend">
+      <span class="legend-tech">Tecnico-Coordinativo</span>
+      <span class="legend-tact">Tattico-Cognitivo</span>
+      <span class="legend-phys">Fisico-Motorio</span>
+      <span class="legend-match">Partita finale</span>
+    </div>
+
+    <p>
+      Il <strong>blocco tecnico-coordinativo</strong> è la sollecitazione percettiva:
+      percorsi con la palla, esercizi di guida, staffette. Qui il bambino tocca la palla il più possibile.
+    </p>
+    <p>
+      Il <strong>blocco tattico-cognitivo</strong> è fatto di giochi collettivi e situazioni di gioco
+      (1 contro 1, 2 contro 1, piccole partite a tema): il bambino impara a leggere lo spazio e a prendere decisioni.
+    </p>
+    <p>
+      Il <strong>blocco fisico-motorio</strong> lavora sulla rapidità, che è il leitmotiv dell'intera programmazione Pulcini.
+      Staffette, sprint brevi, percorsi di reazione.
+    </p>
+    <p>
+      Infine la <strong>partita</strong>: partitelle libere in spazi ridotti (3c3, 5c5), dove tutto quello che si è imparato
+      viene messo in pratica in modo spontaneo.
+    </p>
+
+    <p style="font-size:.88rem;color:#666;">
+      Fonte: Schede Operative Categoria Pulcini (SGS-FIGC) —
+      la struttura da 90 minuti con ripartizione dei tempi è indicata nella griglia di ogni lezione.
+    </p>
+  </section>
+
+  <!-- TABELLA 17 -->
+  <section>
+    <h2>Il bambino di 8-10 anni: cosa dice la scienza</h2>
+    <p>
+      La Guida Tecnica della FIGC dedica un'intera tabella (la famosa <strong>Tabella 17</strong>)
+      a descrivere le caratteristiche evolutive del bambino Pulcino. Ecco i punti chiave:
+      <a class="source-link" href="https://www.figc.it/media/2337/3parte.pdf" target="_blank" rel="noopener">fonte: Guida Tecnica pt.3, pag. 156</a>
+    </p>
+
+    <blockquote>
+      Se ha vissuto e superato spontaneamente l'egocentrismo dell'età precedente,
+      dimostra di relazionarsi sempre meglio con i propri compagni,
+      all'interno di una attività strutturata-gioco.
+      <cite>Guida Tecnica SGS, Tabella 17</cite>
+    </blockquote>
+
+    <p>
+      In parole semplici: a quest'età il bambino passa dal "la palla è mia"
+      alla scoperta del gioco <em>con</em> gli altri. La motricità di base inizia a definirsi
+      all'interno delle abilità tecniche del calcio. L'istruttore non deve essere direttivo
+      ma deve <strong>valorizzare l'iniziativa, la creatività e la fantasia</strong> dei bambini.
+    </p>
+    <p>
+      Gli elementi cardine dell'insegnamento a questa età sono:
+      <strong>dribbling e tiro in porta, giochi di situazione e partitine</strong>,
+      in spazi ridotti (dal 5 contro 5 al 7 contro 7) e con palloni più piccoli.
+    </p>
+    <p>
+      Il principio guida che attraversa tutta la Guida Tecnica è che
+      <strong>il pallone deve essere sempre presente</strong> durante l'allenamento
+      — è il mezzo migliore per apprendere.
+      <a class="source-link" href="https://www.figc.it/media/2337/3parte.pdf" target="_blank" rel="noopener">fonte: Guida Tecnica pt.3, pag. 155</a>
+    </p>
+  </section>
+
+  <!-- NUOVO PROGETTO TECNICO -->
+  <section>
+    <h2>Il nuovo Progetto Tecnico FIGC (marzo 2026)</h2>
+    <p>
+      A rendere tutto ancora più interessante, nel marzo 2026 la FIGC ha presentato
+      una vera e propria riforma del calcio giovanile italiano: il
+      <strong>Nuovo Progetto Tecnico del Calcio Giovanile Italiano</strong>.
+      <a class="source-link" href="https://www.figc.it/it/federazione/news/la-figc-vara-il-nuovo-progetto-tecnico-del-calcio-giovanile-italiano-sl87agww" target="_blank" rel="noopener">fonte FIGC</a>
+    </p>
+
+    <div class="people">
+      <div class="person">
+        <strong>Maurizio Viscidi</strong>
+        <span>Direttore Tecnico per l'attività giovanile</span>
+      </div>
+      <div class="person">
+        <strong>Simone Perrotta</strong>
+        <span>Campione del Mondo 2006, Vicepresidente SGS</span>
+      </div>
+      <div class="person">
+        <strong>Gianluca Zambrotta</strong>
+        <span>Campione del Mondo 2006, Vicepresidente Settore Tecnico</span>
+      </div>
+      <div class="person">
+        <strong>Gabriele Gravina</strong>
+        <span>Presidente FIGC, promotore della riforma</span>
+      </div>
+    </div>
+
+    <h3>La filosofia: meno tattica, più tecnica</h3>
+    <p>
+      Il messaggio centrale è chiaro e controcorrente rispetto alla tendenza italiana degli ultimi anni:
+      basta con l'eccesso di tattica nelle categorie giovanili. I bambini devono
+      <strong>toccare di più la palla</strong>, sviluppare la tecnica individuale, giocare.
+    </p>
+
+    <blockquote>
+      Stiamo notando che, in Italia, si sta forse un po' esagerando con la tattica
+      e con la ricerca del risultato.
+      <cite>Maurizio Viscidi</cite>
+    </blockquote>
+
+    <blockquote>
+      Se miglioriamo il singolo, miglioriamo il collettivo.
+      <cite>Maurizio Viscidi</cite>
+    </blockquote>
+
+    <blockquote>
+      La Federazione deve pensare anche ai ragazzi che non diventeranno calciatori,
+      fornendo loro basi etiche e morali.
+      <cite>Simone Perrotta</cite>
+    </blockquote>
+
+    <h3>Le azioni concrete</h3>
+    <p>Non solo belle parole. Il progetto prevede azioni specifiche:</p>
+    <ul style="margin:.5rem 0 1rem 1.5rem;">
+      <li>Più corsi per "responsabile attività di base" e qualificazione dei formatori</li>
+      <li>Introduzione della programmazione per categoria con percorso formativo dedicato</li>
+      <li>Corsi gratuiti online per allenatori (aggiornamento UEFA C)</li>
+      <li>Riorganizzazione delle Aree di Sviluppo Territoriale</li>
+      <li>Produzione di una guida tecnica pratica e uniforme per tutti i club</li>
+      <li>Benchmarking internazionale con le principali federazioni europee</li>
+    </ul>
+
+    <p style="font-size:.88rem;color:#666;">
+      Fonti:
+      <a href="https://www.figc.it/it/federazione/news/la-figc-vara-il-nuovo-progetto-tecnico-del-calcio-giovanile-italiano-sl87agww" target="_blank" rel="noopener">Comunicato ufficiale FIGC</a>,
+      <a href="https://www.calcioefinanza.it/2026/03/18/figc-nuovo-progetto-calcio-giovanile/" target="_blank" rel="noopener">Calcio e Finanza</a>,
+      <a href="https://www.corrieredellosport.it/news/calcio/italia/2026/03/18-147387522/con_perrotta_e_zambrotta_la_figc_lancia_il_nuovo_progetto_tecnico_del_calcio_giovanile_italiano" target="_blank" rel="noopener">Corriere dello Sport</a>
+    </p>
+  </section>
+
+  <!-- COSA MI PORTO A CASA -->
+  <section>
+    <h2>Cosa mi porto a casa, da genitore</h2>
+    <p>
+      Dopo aver letto tutto questo materiale, alcune cose mi sono rimaste impresse:
+    </p>
+    <p>
+      <strong>Non è un campionato.</strong> L'attività dei Pulcini è pensata per far crescere
+      i bambini, non per vincere trofei. Il risultato della partita conta meno
+      del percorso di apprendimento.
+    </p>
+    <p>
+      <strong>C'è un metodo.</strong> Dietro quello che sembra un "andate a giocare" c'è
+      una programmazione didattica seria, con obiettivi mensili, progressione modulare
+      e tre fattori di sviluppo che si intrecciano in ogni seduta.
+    </p>
+    <p>
+      <strong>La tecnica viene prima della tattica.</strong> A 8-9 anni un bambino deve imparare
+      a guidare la palla, non a fare il pressing alto. La FIGC lo dice chiaramente
+      e il nuovo Progetto Tecnico lo ribadisce con forza.
+    </p>
+    <p>
+      <strong>Il gioco è il mezzo.</strong> Non le urla dalla tribuna, non la lavagna tattica,
+      non il "vai forte". Il gioco, il divertimento, la scoperta: questi sono gli strumenti
+      che la didattica riconosce come efficaci a quest'età.
+    </p>
+    <p>
+      <strong>I bambini sono protagonisti.</strong> Arbitrano da soli, ricevono cartellini verdi
+      per la correttezza, imparano a risolvere i conflitti in campo.
+      Il ruolo dell'adulto è di facilitatore, non di comandante.
+    </p>
+    <p>
+      In fondo, la cosa più bella che ho scoperto leggendo la Guida Tecnica è questa idea:
+    </p>
+    <blockquote>
+      L'istruttore deve valorizzare l'iniziativa dei bambini,
+      favorendo e non inibendo la loro creatività e fantasia.
+      Deve proporre problemi e stimolare soluzioni.
+      <cite>Guida Tecnica SGS, Tabella 17 — pag. 156</cite>
+    </blockquote>
+    <p>
+      Mi sembra un ottimo programma. Non solo per il calcio.
+    </p>
+  </section>
+
+  <!-- FONTI -->
+  <section>
+    <h2>Tutte le fonti</h2>
+    <p>
+      Ogni informazione in questa pagina proviene da documenti ufficiali della FIGC.
+      Ho scaricato e letto i PDF originali. Ecco l'elenco completo — cliccate per verificare.
+    </p>
+
+    <table class="sources-table">
+      <thead>
+        <tr>
+          <th>Documento</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Guida Tecnica per le Scuole di Calcio — Parte 1</td>
+          <td><a href="https://www.figc.it/media/2335/1parte.pdf" target="_blank" rel="noopener">PDF</a></td>
+        </tr>
+        <tr>
+          <td>Guida Tecnica per le Scuole di Calcio — Parte 3 (programmazione, Tabella 17)</td>
+          <td><a href="https://www.figc.it/media/2337/3parte.pdf" target="_blank" rel="noopener">PDF</a></td>
+        </tr>
+        <tr>
+          <td>Schede Operative Categoria Pulcini (SGS)</td>
+          <td><a href="https://www.figc.it/it/giovani/governance/il-settore-giovanile-e-scolastico" target="_blank" rel="noopener">Pagina SGS</a></td>
+        </tr>
+        <tr>
+          <td>CU n.1 SGS — Stagione 2025/2026</td>
+          <td><a href="https://www.figc.it/media/276343/cu-n1-figc-sgs-stagione-sportiva-2025-2026.pdf" target="_blank" rel="noopener">PDF</a></td>
+        </tr>
+        <tr>
+          <td>CU n.3 SGS — Programmazione Attività di Base 2025/2026</td>
+          <td><a href="https://www.figc.it/media/276426/cu-n03-figc-sgs-programmazione-attivita-di-base-2025-2026.pdf" target="_blank" rel="noopener">PDF</a></td>
+        </tr>
+        <tr>
+          <td>Allegato 7B — Regole U10/U11 2025/2026</td>
+          <td><a href="https://www.figc.it/media/276417/allegato-7b-approfondimento_regole_u10-u11.pdf" target="_blank" rel="noopener">PDF</a></td>
+        </tr>
+        <tr>
+          <td>Nuovo Progetto Tecnico del Calcio Giovanile — Comunicato FIGC</td>
+          <td><a href="https://www.figc.it/it/federazione/news/la-figc-vara-il-nuovo-progetto-tecnico-del-calcio-giovanile-italiano-sl87agww" target="_blank" rel="noopener">Articolo</a></td>
+        </tr>
+        <tr>
+          <td>Regolamento SGS</td>
+          <td><a href="https://www.figc.it/it/federazione/norme/regolamento-del-settore-giovanile-e-scolastico" target="_blank" rel="noopener">Pagina</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:.85rem;color:#888;">
+      Materiale raccolto e verificato il 27 maggio 2026. Le Schede Operative Pulcini sono un documento interno SGS
+      non disponibile come link diretto — per ottenerle si può contattare il proprio comitato provinciale
+      o il responsabile tecnico della scuola calcio.
+    </p>
+  </section>
+
+  <footer>
+    <p>
+      Scritto da un papà curioso, non da un allenatore. Per informazioni ufficiali
+      fate sempre riferimento a <a href="https://www.figc.it" target="_blank" rel="noopener">figc.it</a>
+      e al vostro <a href="https://www.figc.it/it/giovani/governance/il-settore-giovanile-e-scolastico" target="_blank" rel="noopener">Settore Giovanile e Scolastico</a>.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
