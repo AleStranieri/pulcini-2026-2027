@@ -364,6 +364,39 @@
     text-align: center;
   }
 
+  /* TOC */
+  .toc {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: #f5f7fa;
+    border-radius: 8px;
+    border: 1px solid #e0e6ed;
+  }
+
+  .toc ol {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .toc li {
+    margin-bottom: .35rem;
+    font-size: .95rem;
+  }
+
+  .toc a {
+    text-decoration: none;
+    color: #0066b3;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  /* Anchor offset for fixed headers */
+  section[id] {
+    scroll-margin-top: 1rem;
+  }
+
   /* Responsive */
   @media (max-width: 600px) {
     .hero h1 { font-size: 1.6rem; }
@@ -384,7 +417,7 @@
     <h1>Mio figlio entra nei Pulcini: e adesso?</h1>
     <p class="subtitle">Un genitore, un bambino del 2017, e un sacco di PDF della FIGC da leggere</p>
     <p class="intro">
-      Mio figlio ha iniziato a dare calci a un pallone praticamente prima di saper camminare.
+      A mio figlio piace giocare a calcio, ma quello che gli piace davvero è far parte del gruppo, della squadra.
       L'anno prossimo, stagione 2026-2027, farà il salto nei <strong>Pulcini</strong>: la categoria U10/U11 del calcio giovanile italiano.
       Da papà curioso (e un po' nerd), mi sono chiesto: <em>cosa si aspetta la FIGC che impari davvero, al di là della partitella del sabato?</em>
     </p>
@@ -395,8 +428,22 @@
     </p>
   </header>
 
+  <!-- INDICE -->
+  <nav class="toc">
+    <ol>
+      <li><a href="#attivita-di-base">Ma che cos'è l'Attività di Base?</a></li>
+      <li><a href="#come-si-gioca">Come si gioca a 9-10 anni</a></li>
+      <li><a href="#cosa-impareranno">Cosa impareranno: i 6 moduli dell'anno</a></li>
+      <li><a href="#giornata-tipo">La giornata tipo: 90 minuti ben spesi</a></li>
+      <li><a href="#il-bambino-pulcino">Il bambino Pulcino: cosa dice la scienza</a></li>
+      <li><a href="#progetto-tecnico">Il nuovo Progetto Tecnico FIGC (marzo 2026)</a></li>
+      <li><a href="#cosa-mi-porto-a-casa">Cosa mi porto a casa, da genitore</a></li>
+      <li><a href="#fonti">Tutte le fonti</a></li>
+    </ol>
+  </nav>
+
   <!-- ATTIVITÀ DI BASE -->
-  <section>
+  <section id="attivita-di-base">
     <h2>Ma che cos'è l'Attività di Base?</h2>
     <p>
       L'attività dei bambini tra i 5 e i 12 anni, nella FIGC, si chiama <strong>Attività di Base</strong>
@@ -416,7 +463,7 @@
       </div>
       <div class="cat-card active">
         <strong>Pulcini</strong>
-        <span>U10 / U11 — nati nel 2017-2018</span>
+        <span>U10 / U11 — nati nel 2016-2017</span>
       </div>
       <div class="cat-card">
         <strong>Esordienti</strong>
@@ -440,8 +487,8 @@
   </section>
 
   <!-- COME SI GIOCA -->
-  <section>
-    <h2>Come si gioca a 8-9 anni</h2>
+  <section id="come-si-gioca">
+    <h2>Come si gioca a 9-10 anni</h2>
     <p>
       Se vi immaginate un campo da calcio con 22 giocatori e un arbitro in nero,
       dimenticatevi tutto. Il calcio dei Pulcini è un'altra cosa.
@@ -488,7 +535,7 @@
   </section>
 
   <!-- COSA IMPARERANNO -->
-  <section>
+  <section id="cosa-impareranno">
     <h2>Cosa impareranno: i 6 moduli dell'anno</h2>
     <p>
       La programmazione didattica della FIGC per i Pulcini prevede <strong>6 moduli</strong>
@@ -641,12 +688,12 @@
     <p style="font-size:.88rem;color:#666;">
       Fonte: Schede Operative Categoria Pulcini (SGS-FIGC) e
       <a href="https://www.figc.it/media/2337/3parte.pdf" target="_blank" rel="noopener">Guida Tecnica per le Scuole di Calcio, Parte 3</a>
-      — Tabella 17 (pag. 156), che descrive le caratteristiche dei Pulcini 8-10 anni.
+      — Tabella 17 (pag. 156), che descrive le caratteristiche evolutive dei Pulcini.
     </p>
   </section>
 
   <!-- GIORNATA TIPO -->
-  <section>
+  <section id="giornata-tipo">
     <h2>La giornata tipo: 90 minuti ben spesi</h2>
     <p>
       Ogni seduta di allenamento dura <strong>90 minuti</strong> ed è strutturata come una vera e propria lezione,
@@ -692,8 +739,8 @@
   </section>
 
   <!-- TABELLA 17 -->
-  <section>
-    <h2>Il bambino di 8-10 anni: cosa dice la scienza</h2>
+  <section id="il-bambino-pulcino">
+    <h2>Il bambino Pulcino: cosa dice la scienza</h2>
     <p>
       La Guida Tecnica della FIGC dedica un'intera tabella (la famosa <strong>Tabella 17</strong>)
       a descrivere le caratteristiche evolutive del bambino Pulcino. Ecco i punti chiave:
@@ -727,7 +774,7 @@
   </section>
 
   <!-- NUOVO PROGETTO TECNICO -->
-  <section>
+  <section id="progetto-tecnico">
     <h2>Il nuovo Progetto Tecnico FIGC (marzo 2026)</h2>
     <p>
       A rendere tutto ancora più interessante, nel marzo 2026 la FIGC ha presentato
@@ -799,7 +846,7 @@
   </section>
 
   <!-- COSA MI PORTO A CASA -->
-  <section>
+  <section id="cosa-mi-porto-a-casa">
     <h2>Cosa mi porto a casa, da genitore</h2>
     <p>
       Dopo aver letto tutto questo materiale, alcune cose mi sono rimaste impresse:
@@ -815,7 +862,7 @@
       e tre fattori di sviluppo che si intrecciano in ogni seduta.
     </p>
     <p>
-      <strong>La tecnica viene prima della tattica.</strong> A 8-9 anni un bambino deve imparare
+      <strong>La tecnica viene prima della tattica.</strong> A 9-10 anni un bambino deve imparare
       a guidare la palla, non a fare il pressing alto. La FIGC lo dice chiaramente
       e il nuovo Progetto Tecnico lo ribadisce con forza.
     </p>
@@ -844,7 +891,7 @@
   </section>
 
   <!-- FONTI -->
-  <section>
+  <section id="fonti">
     <h2>Tutte le fonti</h2>
     <p>
       Ogni informazione in questa pagina proviene da documenti ufficiali della FIGC.
